@@ -49,8 +49,8 @@ app.post("/add", (req, res) => {
 
 
 app.post("/sub", (req, res) => {
-    const num1 = req.query.num1;
-    const num2 = req.query.num2;
+    const num1 = req.body.num1;
+    const num2 = req.body.num2;
     let notNumber = false;
     if (isNaN(num1) || isNaN(num2)) {
         notNumber = true;
