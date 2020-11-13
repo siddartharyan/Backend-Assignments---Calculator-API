@@ -13,6 +13,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(bodyParser.json())
     // your code goes here
+app.get("/", (req, res) => {
+    res.send("Hello world!");
+})
 app.post("/add", (req, res) => {
     const num1 = req.body.num1;
     const num2 = req.body.num2;
@@ -57,7 +60,7 @@ app.post("/sub", (req, res) => {
     if (!notNumber) {
         result = num1 - num2;
     }
-    let message = "the sum of given two numbers";
+    let message = "the difference of given two numbers";
     let status = "success";
     if (notNumber) {
         message = "Invalid data types";
@@ -93,7 +96,7 @@ app.post("/multiply", (req, res) => {
     if (!notNumber) {
         result = num1 * num2;
     }
-    let message = "the sum of given two numbers";
+    let message = "The product of given numbers";
     let status = "success";
     if (notNumber) {
         message = "Invalid data types";
@@ -118,7 +121,7 @@ app.post("/multiply", (req, res) => {
 })
 
 
-app.post("/div", (req, res) => {
+app.post("/division", (req, res) => {
     const num1 = req.body.num1;
     const num2 = req.body.num2;
     let notNumber = false;
@@ -126,7 +129,7 @@ app.post("/div", (req, res) => {
         notNumber = true;
     }
     let result = undefined;
-    let message = "the sum of given two numbers";
+    let message = "The division of given numbers";
     let status = "success";
     if (notNumber) {
         message = "Invalid data types";
