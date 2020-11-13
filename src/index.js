@@ -17,13 +17,16 @@ app.get("/", (req, res) => {
     res.send("Hello world!");
 })
 app.post("/add", (req, res) => {
-    const num1 = req.query.num1;
-    const num2 = req.query.num2;
+    const num1 = req.body.num1;
+    const num2 = req.body.num2;
     let notNumber = false;
     if (isNaN(num1) || isNaN(num2)) {
         notNumber = true;
     }
-    const result = num1 + num2;
+    let result = null;
+    if (!notNumber) {
+        result = num1 + num2;
+    }
     let message = "the sum of given two numbers";
     let status = "success";
     if (notNumber) {
@@ -41,9 +44,9 @@ app.post("/add", (req, res) => {
         notNumber = true;
     }
     if (notNumber) {
-        res.send(JSON.stringify({ status: status, message: message }));
+        res.json({ status: status, message: message, result: result });
     } else {
-        res.send(JSON.stringify({ status: status, message: message, result: result }));
+        res.json({ status: status, message: message, result: result });
     }
 
 })
@@ -56,7 +59,7 @@ app.post("/sub", (req, res) => {
     if (isNaN(num1) || isNaN(num2)) {
         notNumber = true;
     }
-    let result = undefined;
+    let result = null;
     if (!notNumber) {
         result = num1 - num2;
     }
@@ -77,22 +80,22 @@ app.post("/sub", (req, res) => {
         notNumber = true;
     }
     if (notNumber) {
-        res.send(JSON.stringify({ status: status, message: message }));
+        res.json({ status: status, message: message, result: result });
     } else {
-        res.send(JSON.stringify({ status: status, message: message, result: result }));
+        res.json({ status: status, message: message, result: result });
     }
 
 })
 
 
 app.post("/multiply", (req, res) => {
-    const num1 = req.query.num1;
-    const num2 = req.query.num2;
+    const num1 = req.body.num1;
+    const num2 = req.body.num2;
     let notNumber = false;
     if (isNaN(num1) || isNaN(num2)) {
         notNumber = true;
     }
-    let result = undefined;
+    let result = null;
     if (!notNumber) {
         result = num1 * num2;
     }
@@ -113,22 +116,22 @@ app.post("/multiply", (req, res) => {
         notNumber = true;
     }
     if (notNumber) {
-        res.send(JSON.stringify({ status: status, message: message }));
+        res.json({ status: status, message: message, result: result });
     } else {
-        res.send(JSON.stringify({ status: status, message: message, result: result }));
+        res.json({ status: status, message: message, result: result });
     }
 
 })
 
 
 app.post("/division", (req, res) => {
-    const num1 = req.query.num1;
-    const num2 = req.query.num2;
+    const num1 = req.body.num1;
+    const num2 = req.body.num2;
     let notNumber = false;
     if (isNaN(num1) || isNaN(num2)) {
         notNumber = true;
     }
-    let result = undefined;
+    let result = null;
     let message = "The division of given numbers";
     let status = "success";
     if (notNumber) {
@@ -154,9 +157,9 @@ app.post("/division", (req, res) => {
         notNumber = true;
     }
     if (notNumber) {
-        res.send(JSON.stringify({ status: status, message: message }));
+        res.json({ status: status, message: message, result: result });
     } else {
-        res.send(JSON.stringify({ status: status, message: message, result: result }));
+        res.json({ status: status, message: message, result: result });
     }
 
 })
