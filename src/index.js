@@ -109,7 +109,7 @@ app.post("/multiply", (req, res) => {
 })
 
 
-app.post("/division", (req, res) => {
+app.post("/divide", (req, res) => {
     const num1 = req.body.num1;
     const num2 = req.body.num2;
     let notNumber = false;
@@ -126,6 +126,7 @@ app.post("/division", (req, res) => {
     if (!notNumber) {
         if (num2 === 0) {
             message = "Cannot divide by zero";
+            status = "error";
             notNumber = true;
         } else {
             result = num1 / num2;
