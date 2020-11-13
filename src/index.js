@@ -43,11 +43,7 @@ app.post("/add", (req, res) => {
         status = "error";
         notNumber = true;
     }
-    if (notNumber) {
-        res.json({ status: status, message: message, result: result });
-    } else {
-        res.json({ status: status, message: message, result: result });
-    }
+    res.json({ status: status, message: message, sum: result });
 
 })
 
@@ -72,18 +68,12 @@ app.post("/sub", (req, res) => {
     if (num1 < ufl || num2 < ufl || result < ufl) {
         message = "Underflow";
         status = "error";
-        notNumber = true;
     }
     if (num1 > ofl || num2 > ofl || result > ofl) {
         message = "Overflow";
         status = "error";
-        notNumber = true;
     }
-    if (notNumber) {
-        res.json({ status: status, message: message, result: result });
-    } else {
-        res.json({ status: status, message: message, result: result });
-    }
+    res.json({ status: status, message: message, difference: result })
 
 })
 
@@ -108,18 +98,13 @@ app.post("/multiply", (req, res) => {
     if (num1 < ufl || num2 < ufl || result < ufl) {
         message = "Underflow";
         status = "error";
-        notNumber = true;
+
     }
     if (num1 > ofl || num2 > ofl || result > ofl) {
         message = "Overflow";
         status = "error";
-        notNumber = true;
     }
-    if (notNumber) {
-        res.json({ status: status, message: message, result: result });
-    } else {
-        res.json({ status: status, message: message, result: result });
-    }
+    res.json({ status: status, message: message, result: result });
 
 })
 
@@ -156,11 +141,7 @@ app.post("/division", (req, res) => {
         status = "error";
         notNumber = true;
     }
-    if (notNumber) {
-        res.json({ status: status, message: message, result: result });
-    } else {
-        res.json({ status: status, message: message, result: result });
-    }
+    res.json({ status: status, message: message, result: result });
 
 })
 
